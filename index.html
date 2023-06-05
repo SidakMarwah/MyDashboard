@@ -131,6 +131,8 @@
   var hours = now.getHours();
   var minutes = now.getMinutes();
   var seconds = now.getSeconds();
+  var day = now.toLocaleDateString(undefined, { weekday: 'long' });
+  var date = now.toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' });
 
   // Format the time in HH:MM:SS format
   var time = hours.toString().padStart(2, '0') + ':' +
@@ -138,7 +140,7 @@
              seconds.toString().padStart(2, '0');
 
   // Update the clock display
-  document.getElementById('clock').textContent = time;
+  document.getElementById('clock').innerHTML = time + '<br>' + day + '<br>' + date;
 }
 
 // Update the clock every second
